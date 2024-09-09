@@ -293,7 +293,9 @@ const CoursesPage = () => {
                                             </div>
                                             <div className='CCc_Card_1_Mid'>
                                                 <h4>About this qualification</h4>
-                                                <p>{course.details}</p>
+                                                <p dangerouslySetInnerHTML={{ __html: course.details }}></p>
+                                                {/* <p>{course.details}</p> */}
+
                                                 <div className='Career-Divv'>
                                                     <h4>Career opportunities</h4>
                                                     <p>{course.careerOpportunities}</p>

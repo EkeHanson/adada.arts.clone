@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import PageLoader from './assets/Img/page-loader.gif';
 import './App.css';
+import './Userdashboard/Dashboard.css';
 import './Admin/main.css'; // Ensure this CSS is applied globally or in a specific context
 import { AuthProvider } from './context/AuthContext'; // Import AuthProvider
 import ProtectedRoute from './pages/ProtectedRoute'; // Import the ProtectedRoute component
@@ -23,6 +24,10 @@ const Signup = lazy(() => import('./pages/Signup'));
 const SetPassword = lazy(() => import('./pages/SetPassword'));
 const ForgotPass = lazy(() => import('./pages/ForgotPass'));
 const SearchResult = lazy(() => import('./pages/SearchResult')); // Import the SearchResult component
+const Dashboard = lazy(() => import('./Userdashboard/Dashboard'));
+const OngoingCourses = lazy(() => import('./Userdashboard/OngoingCourses'));
+const CompletedCourses = lazy(() => import('./Userdashboard/CompletedCourses'));
+const UserProfile = lazy(() => import('./Userdashboard/UserProfile'));
 const AdminHome = lazy(() => import('./Admin/AdminHome'));
 const CourseCategoryPage = lazy(() => import('./Admin/CourseCategoryPage'));
 const InstructorPage = lazy(() => import('./Admin/InstructorPage'));
@@ -54,6 +59,10 @@ const MainContent = () => {
         <Route path="/terms" element={<ProtectedRoute><TermsPage /></ProtectedRoute>} />
         <Route path="/privacy" element={<ProtectedRoute><PrivacyPage /></ProtectedRoute>} />
         <Route path="/search" element={<ProtectedRoute><SearchResult /></ProtectedRoute>} /> {/* Add SearchResult route */}
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/dashboard/ongoing-courses" element={<ProtectedRoute><OngoingCourses /></ProtectedRoute>} /> 
+        <Route path="/dashboard/completed-courses" element={<ProtectedRoute><CompletedCourses /></ProtectedRoute>} /> 
+        <Route path="/dashboard/profile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} /> 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/set-password" element={<SetPassword />} />

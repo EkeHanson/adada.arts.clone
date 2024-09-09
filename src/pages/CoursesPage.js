@@ -25,6 +25,15 @@ const CoursesPage = () => {
     const mainCategoryName = queryParams.get('Maincategory');
     const categoryId = queryParams.get('id');
 
+
+    function insertIntoUrl(url) {
+        const insertString = "api/v1/free/";
+        const insertPosition = url.indexOf("api/v1/free") + insertString.length;
+        const updatedUrl = url.slice(0, insertPosition) + insertString + url.slice(insertPosition);
+        return updatedUrl;
+    }
+    
+
     const [courseStatus, setCourseStatus] = useState('all-courses');
     const [methodOfLearning, setMethodOfLearning] = useState('all-courses');
     const [fees, setFees] = useState('all-courses');
@@ -264,7 +273,7 @@ const CoursesPage = () => {
                         <div className='Courses_Groups'>
                             <div className='Topp_Seck'>
                                 <div className='Topp_Seck_Img'>
-                                    <img src={categoryImage} alt="Course" />
+                                    <img src={insertIntoUrl(categoryImage)} alt="Course" />
                                 </div>
                                 <div className='Topp_Seck_Txt'>
                                     <div>

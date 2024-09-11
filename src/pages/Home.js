@@ -336,99 +336,7 @@ const Home = () => {
       </ul> */}
     </div>
 
-    <div className='Hh_courses HiDE_This'>
-      <div className={`Hh_Box Health_Hh_Box ${activeBtn === 'health' ? 'active_Hh_Box' : ''}`}>
-        <div className='Hh_courses_Header'>
-          <h3 className='mid-text'>Industry Sector</h3>
-          <p className='p'>{healthCategories.length} Categories, {totalCourses} courses</p>
-        </div>
-        <div className='Hh_Slider'>
-          <div className="slider-container">
-            <Slider {...settings} ref={sliderRef}>
-              {loading ? (
-                Array.from({ length: 5 }).map((_, index) => (
-                  <div className="slider-box" key={index}>
-                    <div className='Hh_courses_Card'>
-                      <CardLoader />
-                    </div>
-                  </div>
-                ))
-              ) : healthCategories.length > 0 ? healthCategories.map(category => (
-                <div className="slider-box" key={category.id}>
-                  <div className='Hh_courses_Card'>
-                    {/* <Link to={`/courses/${category.id}`} className='course_card'> */}
-
-                    <Link to={`/courses?name=${encodeURIComponent(category.title)}&id=${category.id}&Maincategory=Industry Sector`} className='course_card'>
-                      <div className='course_card_banner'>
-                        <img src={insertIntoUrl(category.image)} alt={category.title} />
-                      </div>
-                      <div className='course_card_dlt'>
-                        <h3>{category.title}</h3>
-                        <span><img src={CourserIcon1} alt="Icon 1" />Industry Sector</span>
-                        <span><img src={CourserIcon2} alt="Icon 2" />
-                          {category.courses.length} {category.courses.length === 1 ? 'course' : 'courses'}
-                        </span>
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-              )) : (
-                <div className="slider-box">
-                  <CardLoader />
-                </div>
-              )}
-            </Slider>
-          </div>
-        </div>
-      </div>
-
-      <div className={`Hh_Box Leadersip_Hh_Box ${activeBtn === 'leadership' ? 'active_Hh_Box' : ''}`}>
-        <div className='Hh_courses_Header'>
-          <h3 className='mid-text'>Career Related</h3>
-          <p className='p'>{categories.length} Categories, {totalCourses} courses</p>
-        </div>
-        <div className='Hh_Slider'>
-          <div className="slider-container">
-            <Slider {...settings} ref={sliderRef}>
-              {loading ? (
-                Array.from({ length: 5 }).map((_, index) => (
-                  <div className="slider-box" key={index}>
-                    <div className='Hh_courses_Card'>
-                      <CardLoader />
-                    </div>
-                  </div>
-                ))
-              ) : categories.length > 0 ? categories.map(category => (
-                <div className="slider-box" key={category.id}>
-                  <div className='Hh_courses_Card'>
-                    <Link to={`/courses/${category.id}`} className='course_card'>
-                      <div className='course_card_banner'>
-                        <img src={insertIntoUrl(category.image)} alt={category.title} />
-                      </div>
-                      <div className='course_card_dlt'>
-                        <h3>{category.title}</h3>
-                        <span>
-                          <img src={CourserIcon1} alt="Icon 1" />
-                          {category.mainCategory === 2 ? 'Industry Sector' : 'Career Related'}
-                        </span>
-                        <span>
-                          <img src={CourserIcon2} alt="Icon 2" />
-                          {category.courses.length} {category.courses.length === 1 ? 'course' : 'courses'}
-                        </span>
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-              )) : (
-                <div className="slider-box">
-                  <CardLoader />
-                </div>
-              )}
-            </Slider>
-          </div>
-        </div>
-      </div>
-    </div>
+ 
 
     <div className='porpular_Sec'>
       <div className='Hh_courses'>
@@ -439,7 +347,6 @@ const Home = () => {
           </div> */}
           <div className='Hh_Slider'>
             <div className="slider-container">
-              <Slider {...settings} ref={sliderRef}>
                 {loading ? (
                   Array.from({ length: 5 }).map((_, index) => (
                     <div className="slider-box" key={index}>
@@ -474,7 +381,6 @@ const Home = () => {
                     <CardLoader />
                   </div>
                 )}
-              </Slider>
             </div>
           </div>
         </div>
@@ -570,7 +476,7 @@ const Home = () => {
             <div className='Abt_Dlt'>
               <div>
                 <h2 className='Semi-mid-text'>Learn. Innovate. Improve</h2>
-               <p className='p'>Virtual, classroom and e-learning skills development courses designed to help your people and businesses achieve.</p>
+               <p className='p'>Virtual, classroom and e-learning skills development courses designed to help your people and businesses.</p>
 
             <div className='Abt_Btns'>
              <a href='#'>Get started</a>

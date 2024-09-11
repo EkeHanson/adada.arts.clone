@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext'; // Make sure this context is set up correctly
 import HelpIcon from '../assets/Img/help-icon.svg';
-import ArrowDownIcon from '../assets/Img/arrow-down.svg';
+import ArrowDownIcon from '../assets/Img/arrow-down1.svg';
 import GlobeIcon from '../assets/Img/globe-icon.svg';
 import Logo from '../assets/Img/site-logo.png';
 
@@ -46,6 +46,38 @@ const Navbar = ({ toggleSubNav, isSubNavVisible }) => {
     }
   };
 
+  const [industryCategories, setIndustryCategories] = useState([]);
+  const [careerCategories, setCareerCategories] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
+
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch('https://cmvp.net/api/v1/free/api/courses/category/');
+        const data = await response.json();
+
+        // console.log("Industry Category Data")
+        // console.log(data)
+        // console.log("Industry Category Data")
+
+        // const industry = data.filter(category => category[0].mainCategory.name === "Health Care");
+        const career = data.filter(category => category.mainCategory.id === 2);
+
+        setIndustryCategories(data);
+        setCareerCategories(career);
+
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+
+
   return (
     <nav className={`NaVbar ${isNavActive ? 'active-Navbar' : ''}`}>
       <div className='Top_Nav'>
@@ -55,29 +87,40 @@ const Navbar = ({ toggleSubNav, isSubNavVisible }) => {
               <img src={Logo} alt="Site Logo" />
             </Link>
             <div className='Nav_Icons'>
-              <ul>
-                <li className={`explore-Cc-Icon ${isSubNavVisible ? 'active-explore-Cc' : ''}`}>
+              <ul className='Ll_Nav_Ul'>
+                {/* <li className={`explore-Cc-Icon ${isSubNavVisible ? 'active-explore-Cc' : ''}`}>
                   <a href='#' onClick={handleExploreClick}>
                     Explore courses <img src={ArrowDownIcon} alt="Arrow-down Icon" />
                   </a>
-                </li>
+                </li> */}
 
-                <li className='Mobile-Nav-Icon'>
-                  <Link to='/health-category' onClick={handleNavClick}>Health and Social Care Courses</Link>
-                </li>
+                  {industryCategories.map(category => (
+                        <li key={category.id}>
+                          <Link to={`/courses?name=${encodeURIComponent(category.title)}&id=${category.id}&Maincategory=Industry Sector`}>
+                            {category.title}
+                            <img src={ArrowDownIcon} alt="Arrow-down Icon" className='Arrow_Down_Icons' />
+                          </Link>
 
-                <li className='Mobile-Nav-Icon'>
-                  <Link to='/leadership-category' onClick={handleNavClick}>Leadership and Management Courses</Link>
-                </li>
+                          <div className='Courses_DropDown'>
+                    <ul>
+                    <li><a href="#">Click to open</a></li>
+                    </ul>
+                  </div>
+                        </li>
+                      ))}
 
-                <li>
-                  <Link to='/arts-training' className='arts_training_Btn' onClick={handleNavClick}>
-                    A.R.T.S training
+
+                {/* <li>
+                  <Link to='/arts-training'  onClick={handleNavClick}>
+                    A.R.T.S Training
                   </Link>
-                </li>
-                <li>
+                </li> */}
+               
+              </ul>
+              <ul className='Rr_Nav_Ul'>
+              <li>
                   <Link to='/about' onClick={handleNavClick}>
-                    About us
+                    About Us
                   </Link>
                 </li>
                 <li>
@@ -85,29 +128,27 @@ const Navbar = ({ toggleSubNav, isSubNavVisible }) => {
                     Help <img src={HelpIcon} alt="Help Icon" />
                   </Link>
                 </li>
-              </ul>
-              <ul className='Rr_Nav_Ul'>
                 {user ? (
                   <>
-                    <li><a href="javascript:void(0);" onClick={handleDashboardClick}>Dashboard</a></li>
+                    <li><a href="javascript:void(0);" className='uL_login_btn' onClick={handleDashboardClick}>Dashboard</a></li>
                     <li><a href="javascript:void(0);" className='signup_btn' onClick={handleLogout}>Logout</a></li>
                   </>
                 ) : (
                   <>
-                    <li><Link to='/login' onClick={handleNavClick}>Login</Link></li>
-                    <li><Link to='/signup' className='signup_btn' onClick={handleNavClick}>Sign Up</Link></li>
+                    <li><Link to='/login' className='uL_login_btn' onClick={handleNavClick}>Log in</Link></li>
+                    <li><Link to='/signup' className='signup_btn' onClick={handleNavClick}>Get Started</Link></li>
                   </>
                 )}
               </ul>
             </div>
             <div className='Rr_Sec_D'>
-              <div className='lang_Div'>
+              {/* <div className='lang_Div'>
                 <span><img src={GlobeIcon} alt="Globe Icon" /></span>
                 <p>EN</p>
                 <ul className='lang_DropDown'>
                   <li>EN</li>
                 </ul>
-              </div>
+              </div> */}
               <div className='Nav_Toggler' onClick={handleNavToggle}>
                 <span></span>
                 <span></span>

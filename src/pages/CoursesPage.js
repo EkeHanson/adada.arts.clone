@@ -79,7 +79,7 @@ const CoursesPage = () => {
     const handleEnrollClick = () => {
         setShowPaymentDropdown(true);
     };
-
+    
     const handleCloseDropdown = () => {
         setShowPaymentDropdown(false);
     };
@@ -90,6 +90,9 @@ const CoursesPage = () => {
             [cardId]: !prevState[cardId]
         }));
     };
+
+    // Conditionally add class to payment_DropDown section
+const dropdownClass = showPaymentDropdown ? "payment_DropDown show_payment_DropDown" : "payment_DropDown";
 
     return (
         <div className='courses-page'>
@@ -292,18 +295,19 @@ const CoursesPage = () => {
                                                 <h3>{course.title}</h3>
                                             </div>
                                             <div className='CCc_Card_1_Mid'>
-                                                <h4>About this qualification</h4>
+                                                {/* <h4>About this qualification</h4> */}
                                                 <p dangerouslySetInnerHTML={{ __html: course.details }}></p>
                                                 {/* <p>{course.details}</p> */}
 
                                                 <div className='Career-Divv'>
-                                                    <h4>Career opportunities</h4>
+                                                    {/* <h4>Career opportunities</h4> */}
                                                     <p>{course.careerOpportunities}</p>
                                                 </div>
                                             </div>
                                             <div className='CCc_Card_1_Foot'>
                                                 <button className='view-more-btn' onClick={() => toggleCard(`card${index}`)}>
-                                                    {expandedCards[`card${index}`] ? 'View less' : 'View more'} <img src={expandedCards[`card${index}`] ? ArrowUpIcon1 : ArrowDownIcon1} alt="Arrow" />
+                                                    {expandedCards[`card${index}`] ? 'View less' : 'View more'} 
+                                                    {/* <img src={expandedCards[`card${index}`] ? ArrowUpIcon1 : ArrowDownIcon1} alt="Arrow" /> */}
                                                 </button>
                                             </div>
                                         </div>
@@ -313,7 +317,11 @@ const CoursesPage = () => {
                                                 <li><img src={CcIcon2} alt="Icon" /><span>{course.duration}</span></li>
                                                 <li><h3>{course.price}</h3></li>
                                                 <li><img src={CcIcon3} alt="Icon" /> <span>{course.methodOfLearning}</span></li>
-                                                <li><button className='enroll_btn' onClick={handleEnrollClick}><img src={CcIcon4} alt="Icon" /> Enroll Now</button></li>
+                                                <li>
+                                                <button className='enroll_btn' onClick={handleEnrollClick}>
+                                                    <img src={CcIcon4} alt="Icon" /> Enroll Now
+                                                </button>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -326,7 +334,7 @@ const CoursesPage = () => {
                 </div>
             </section>
 
-            <section className='DaNns_Footd'>
+            {/* <section className='DaNns_Footd'>
                 <div className='site-container'>
                     <div className='DaNns_Footd_1'>
                         <Link to='/health-category' className='btn btn-light'>View All Healthcare Courses</Link>
@@ -352,7 +360,16 @@ const CoursesPage = () => {
                         </ul>
                     </div>
                 </div>
-            </section>
+            </section> */}
+
+
+
+<section className={dropdownClass}>
+    <div className="payment_Box">
+        <h3 className="semi-mid-text">Paypal Dropdown</h3>
+    </div>
+    <button className="close_payment_DropDown" onClick={handleCloseDropdown}></button>
+</section>
 
            
      
@@ -364,7 +381,7 @@ const CoursesPage = () => {
             <div className='Abt_Dlt'>
               <div>
                 <h2 className='Semi-mid-text'>Learn. Innovate. Improve</h2>
-               <p className='p'>Virtual, classroom and e-learning skills development courses designed to help your people and businesses achieve.</p>
+               <p className='p'>Virtual, classroom and e-learning skills development courses designed to help your people and businesses.</p>
 
             <div className='Abt_Btns'>
              <a href='#'>Get started</a>

@@ -137,26 +137,69 @@
 .Nav_Toggler{
   display: none;
 }
-@media screen and (max-width:1100px){
+@media screen and (max-width:1200px){
   .Top_Nav{
     height: 60px !important;
   }
   .Nav_Icons{
     position: fixed !important;
     top: 60px !important;
-    width: 100% !important;
+    width: 300px !important;
     height: 100% !important;
-    left: 0 !important;
+    right: -100% !important;
     background-color: #fff;
     margin-left: 0px !important;
     z-index: 1000;
     border-top: 1px solid #E4E4E4 !important;
-    display: none !important;
+    display: block !important;
     overflow-y: auto;
     padding:0px 25px !important;
+    transition: all 0.3s ease-in-out !important;
   }
   .active-Navbar .Nav_Icons{
+    right: 0% !important;
+  }
+  .Top_Nav::before{
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 60px;
+    left: 0;
+    z-index: 200;
+    background-color: rgba(0,0,0,0.8);
+    opacity: 0;
+    -webkit-animation: FadeBbs 0.3s ease forwards;
+    -moz-animation: FadeBbs 0.3s ease forwards;
+    animation: FadeBbs 0.3s ease forwards;
+    display: none;
+  }
+  .active-Navbar .Top_Nav::before{
     display: block !important;
+  }
+  @keyframes FadeBbs{
+    from{
+      opacity: 0;
+    }
+    to{
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes FadeBbs{
+    from{
+      opacity: 0;
+    }
+    to{
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes FadeBbs{
+    from{
+      opacity: 0;
+    }
+    to{
+      opacity: 1;
+    }
   }
   .Nav_Icons ul{
     position: relative;
@@ -167,17 +210,18 @@
     position: relative;
     width: 100% !important;
     margin-top: 10px;
-    text-align: center;
   }
-  .Nav_Icons ul li:first-child{
-    margin-top: 0px !important;
-  }
+
   .Nav_Icons ul li a{
     width: 100% !important;
     position: relative;
-    justify-content: center !important;
-    text-align: center  !important;
     padding: 5px 0px !important;
+  }
+  .Nav_Icons ul li a img.Arrow_Down_Icons{
+    transform: rotate(-90deg) !important;
+  }
+  .Nav_Icons ul.Ll_Nav_Ul li a{
+    justify-content: space-between !important;
   }
   .Nav_Icons ul li.explore-Cc-Icon{
     display: none !important;
@@ -197,15 +241,8 @@
     background-color: transparent !important;
     border-color: transparent !important;
   }
-  .Nav_Icons ul.Rr_Nav_Ul{
-    margin-top: 15px !important;
-  }
-  .Nav_Icons ul.Rr_Nav_Ul li a{
-    width: 300px !important;
-    border-color: #B3C2BC;
-    background-color: #F0F5FF;
-    padding: 10px !important;
-  }
+
+
 
   .Nav_Toggler{
     position: relative;
@@ -253,6 +290,12 @@
 }
 
 @media screen and (max-width:500px){
+  .Nav_Icons{
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width:500px){
   .site-logo img{
     max-width: 75px !important;
   }
@@ -277,20 +320,38 @@
   gap: 10px;
   grid-gap: 10px;
 }
+.Nav_Icons ul li{
+  position: relative;
+  z-index: 100;
+}
 .Nav_Icons ul li.Mobile-Nav-Icon{
   display: none;
 }
+.Nav_Icons ul li:hover .Courses_DropDown{
+  display: block !important;
+ }
 .Nav_Icons ul li a{
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: 7px;
   grid-gap: 7px;
-  font-size: 16px;
-  padding: 5px 15px;
+  font-size: 0.875rem;
+  padding: 8px 10px;
   border:1px solid transparent;
-  border-radius: 8px;
+  border-radius: 40px;
   transition: all 0.3s ease-in-out;
+  color: #535768 !important;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.Nav_Icons ul.Rr_Nav_Ul li .uL_login_btn{
+  border-color: #0055FF !important;
+  color: #0055FF !important;
+  padding: 10px 15px !important;
+  justify-content: center !important;
+  text-align: center !important;
 }
 .Nav_Icons ul li a:hover{
   opacity: 0.8;
@@ -304,14 +365,17 @@
 .Nav_Icons ul li a.signup_btn{
   background-color: #0055FF;
   color: #fff !important;
-  font-weight: 500;
-  padding: 8px 15px;
+  padding: 10px 15px !important;
+  justify-content: center !important;
+  text-align: center !important;
 }
 
 .explore-Cc-Icon a img{
   position: relative;
 }
-
+.Nav_Icons ul li a img.Arrow_Down_Icons{
+  width: 14px;
+}
 .active-explore-Cc.explore-Cc-Icon a img{
   transform: rotate(180deg);
 }
@@ -532,6 +596,11 @@
   -moz-animation: FadeInTOp 0.3s ease forwards;
   animation: FadeInTOp 0.3s ease forwards;
   overflow: hidden;
+}
+@media screen and (max-width:1200px){
+  .Courses_DropDown{
+    display: none !important;
+  }
 }
 .Courses_DropDown li{
   display: block !important;
@@ -1035,7 +1104,7 @@
   position: relative;
   width: 100%;
   height: auto;
-  padding: 30px 30px;
+  padding: 20px 0px;
   min-height: 300px;
   margin-top: 20px;
   border-radius: 10px;
@@ -1092,16 +1161,34 @@
   position: relative;
   width: 100%;
   height: auto;
-  /* margin-top: 30px; */
 }
-.slider-container {
+.Gga_Cardss {
   position: relative;
   width: 100%;
 }
 
+
 .slider-box {
-  padding: 10px;
   position: relative;
+}
+
+.slider-container{
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+}
+
+@media screen and (max-width:600px){
+  .slider-container{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    grid-gap: 20px !important;
+  }
 }
 
 
@@ -1184,14 +1271,21 @@
 .course_card_banner img{
   position: relative;
   width: 100%;
-  height: 180px;
+  height: 250px;
   object-fit: cover;
   object-position: center;
+  border-radius: 10px;
 }
-@media screen and (max-width:500px){
+@media screen and (max-width:1000px){
   .course_card_banner img{
     height: auto !important;
     max-height: 250px !important;
+  }
+}
+@media screen and (max-width:600px){
+  .course_card_banner img{
+    height: auto !important;
+    max-height: 100% !important;
   }
 }
 
@@ -1199,11 +1293,10 @@
   position: relative;
   width: 100%;
   height: auto;
-  padding: 20px;
+  padding: 10px 0px;
 }
 @media screen and (max-width:500px){
   .course_card_dlt{
-    padding: 15px !important;
   }
   .course_card_dlt h3{
     font-size: 15px !important;
@@ -1220,7 +1313,7 @@
 	width: 100%;
 	font-size: 16px;
 	line-height: 25px;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
   font-weight: 500;
   color: #0055FF;
 }
@@ -1730,7 +1823,7 @@ img.foot-logo{
 
 .filter_Sec{
   position: sticky;
-  top: 150px;
+  top: 130px;
   width: 300px;
   min-height: 300px;
   z-index: 100;
@@ -1840,13 +1933,18 @@ img.foot-logo{
   }
 }
 
-@media screen and (max-width:600px){
+@media screen and (max-width:700px){
   .Topp_Seck{
     display: block !important;
   }
   .Topp_Seck_Img{
     width: 100% !important;
     margin-bottom: 10px !important;
+  }
+  .Topp_Seck_Img img{
+    width: 100% !important;
+    height: auto !important;
+    max-height: 300px !important;
   }
 }
 .Topp_Seck_Img{

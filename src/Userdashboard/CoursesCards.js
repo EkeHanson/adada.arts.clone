@@ -10,12 +10,17 @@ import CcIcon4 from '../assets/Img/Cc-icon4.svg';
 const RecentCourses = () => {
   const [expandedCards, setExpandedCards] = useState({});
 
+
   const toggleCard = (cardId) => {
     setExpandedCards(prevState => ({
       ...prevState,
       [cardId]: !prevState[cardId]
     }));
   };
+
+
+
+  
 
   return (
     <div className='HHag_Sec'>

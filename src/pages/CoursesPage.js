@@ -64,10 +64,7 @@ const CoursesPage = () => {
                     //console.log('Fetched data:', data); // Log the fetched data
                     if (data && Array.isArray(data.courses)) {
                       setCategoryImage(data.image)
-                        setCourses(data.courses); // Set the fetched courses data
-                        // console.log("categoryImage")
-                        // console.log(categoryImage)
-                        // console.log("categoryImage")
+                        setCourses(data.courses); 
                     } else {
                         console.error('Expected data to have a "courses" key with an array value, but got:', data);
                     }

@@ -16,9 +16,6 @@ const SubNavbar = ({ isSubNavVisible }) => {
         const response = await fetch('https://cmvp.net/api/v1/free/api/courses/category/');
         const data = await response.json();
 
-        // console.log("Industry Category Data")
-        // console.log(data)
-        // console.log("Industry Category Data")
 
         // const industry = data.filter(category => category[0].mainCategory.name === "Health Care");
         const career = data.filter(category => category.mainCategory.id === 2);

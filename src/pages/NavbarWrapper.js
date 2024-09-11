@@ -15,9 +15,9 @@ const NavbarWrapper = () => {
       <Suspense fallback={<div></div>}>
         <Navbar toggleSubNav={toggleSubNav} isSubNavVisible={isSubNavVisible} />
       </Suspense>
-      <Suspense fallback={<div></div>}>
+      {/* <Suspense fallback={<div></div>}>
         <SubNavbar isSubNavVisible={isSubNavVisible} />
-      </Suspense>
+      </Suspense> */}
     </div>
   );
 };

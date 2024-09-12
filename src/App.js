@@ -1,11 +1,15 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import PageLoader from './assets/Img/page-loader.gif';
 import './App.css';
 import './Userdashboard/Dashboard.css';
-import './Admin/main.css'; // Ensure this CSS is applied globally or in a specific context
+import './Admin/main.css';
 import { AuthProvider } from './context/AuthContext'; // Import AuthProvider
 import ProtectedRoute from './pages/ProtectedRoute'; // Import the ProtectedRoute component
+
+// Import Cookie Components
+import CookieConsentBanner from './pages/CookieConsentBanner';
+import CookieSettingsModal from './pages/CookieSettingsModal';
 
 // Lazy-loaded components
 const NavbarWrapper = lazy(() => import('./pages/NavbarWrapper'));
@@ -43,6 +47,32 @@ const MainContent = () => {
   const location = useLocation();
   const hideNavFooterRoutes = ['/login', '/signup', '/set-password', '/forgot-password'];
   const isAdminRoute = location.pathname.startsWith('/admin');
+
+  // State to handle cookie modal and consent
+  const [isCookieModalOpen, setCookieModalOpen] = useState(false);
+  const [cookiesAccepted, setCookiesAccepted] = useState(() => {
+    // Check if the user has already accepted/rejected cookies
+    return localStorage.getItem('cookiesAccepted') === 'true';
+  });
+
+  const handleAcceptCookies = () => {
+    setCookiesAccepted(true);
+    // Store cookie preference in localStorage
+    localStorage.setItem('cookiesAccepted', 'true');
+  };
+
+  const handleRejectCookies = () => {
+    setCookiesAccepted(false);
+    localStorage.setItem('cookiesAccepted', 'false');
+  };
+
+  const handleManageCookies = () => {
+    setCookieModalOpen(true);
+  };
+
+  const handleCloseCookieModal = () => {
+    setCookieModalOpen(false);
+  };
 
   return (
     <>
@@ -88,6 +118,21 @@ const MainContent = () => {
         } />
       </Routes>
       {!isAdminRoute && !hideNavFooterRoutes.includes(location.pathname) && <Footer />}
+
+      {/* Show the Cookie Consent Banner if cookies are not yet accepted */}
+      {!cookiesAccepted && (
+        <CookieConsentBanner
+          onAccept={handleAcceptCookies}
+          onReject={handleRejectCookies}
+          onManage={handleManageCookies}
+        />
+      )}
+
+      {/* Render the Cookie Settings Modal */}
+      <CookieSettingsModal
+        isOpen={isCookieModalOpen}
+        onClose={handleCloseCookieModal}
+      />
     </>
   );
 };

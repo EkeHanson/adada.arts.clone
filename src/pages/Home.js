@@ -225,7 +225,7 @@ const Home = () => {
       <Helmet>
         <title>Accredited Recognized Training Solutions | A.R.T.S Training Services</title>
         <meta name="description" content="Accredited Recognized Training Solutions" />
-        <meta name="keywords" content="A.R.T.S, training services, accredited health courses" />
+        <meta name="keywords" content="A.R.T.S, training services, accredited health courses, Your number one accredited healthcare training provider in Chester, Childcare training partner you can trust, NCFE recognised and approved healthcare training programmes, Fully funded qualifications for your adult care workforce" />
       </Helmet>
 
       <header className='header-sec'>
@@ -292,7 +292,7 @@ const Home = () => {
               <div><img src={CllaImg1}></img></div>
               <div>
                 <p>Accredited courses for you</p>
-                <span>All our courses are accreted and have interesting topics </span>
+                <span>All our courses are accredited. </span>
               </div>
             </li>
 

@@ -369,8 +369,8 @@ const dropdownClass = showPaymentDropdown ? "payment_DropDown show_payment_DropD
 </section>
 
            
-     
-            <section className='Maihs_sec Glans_Bg'>
+    
+     <section className='Maihs_sec Glans_Bg'>
         <div className='mid-container'>        
      
         <div className='Abt_Sec'>

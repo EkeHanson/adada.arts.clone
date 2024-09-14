@@ -30,6 +30,7 @@ export const AuthProvider = ({ children }) => {
       const isAdmin = email === 'allSuperAdmin@app.com' && password === '1234567890Qwerty1234567890';
       const userData = { email, token: data.token, role: isAdmin ? 'admin' : 'user' };
       setUser(userData);
+      localStorage.setItem('userId', data.userId);
       localStorage.setItem('authToken', data.access);
       localStorage.setItem('authEmail', email);
       localStorage.setItem('authRole', isAdmin ? 'admin' : 'user');

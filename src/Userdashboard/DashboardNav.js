@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'; 
 import { NavLink } from 'react-router-dom';
 import ProfilePlaceholder from './Img/profile-placeholder.png';
 import EditIcon from './Img/edit-icon.svg';
@@ -9,10 +9,41 @@ import LogoutIcon from './Img/logout.svg';
 import MyCoursesIcon from './Img/my-courses.svg';
 
 const DashboardNav = () => {
+
+  const [dashboardData, setDashboardData] = useState({
+    full_name: "",
+    number_of_enrolled_courses: 0,
+    ongoing_courses: 0,
+    completed_courses: 0,
+  });
+
+  useEffect(() => {
+    // Fetch the API data
+    const fetchDashboardData = async () => {
+      try {
+        const userId = localStorage.getItem('userId'); 
+        const response = await fetch(`https://cmvp.net/api/v1/free/api/register/users/${userId}/`);
+        const data = await response.json();
+
+        // Update the state with the fetched data, handling null values
+        setDashboardData({
+          full_name: data.full_name || " ",
+          number_of_enrolled_courses: data.number_of_enrolled_courses || 0,
+          ongoing_courses: data.ongoing_courses || 0,
+          completed_courses: data.completed_courses || 0,
+        });
+      } catch (error) {
+        console.error('Error fetching dashboard data:', error);
+      }
+    };
+
+    fetchDashboardData();
+  }, []);
+
   return (
     <div className='Dashboard_Content'>
       <div className='Tt_Ddda_1'>
-        <h3>Dashboard <span>16.05.2024</span></h3>
+        <h3>Dashboard <span>{new Date().toLocaleDateString()}</span></h3>
       </div>
       <div className='Tt_Ddda_2'>
         <div className='Tt_Ddda_20'>
@@ -21,7 +52,7 @@ const DashboardNav = () => {
         </div>
         <div className='Tt_Ddda_21'>
           <div>
-            <h4>Ndubuisi Prince Godson</h4>
+            <h4>{dashboardData.full_name}</h4>
             <p><span>ID <img src={AllArrow} alt='All Arrow' /></span> ARTS11109</p>
           </div>
         </div>

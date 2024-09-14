@@ -98,14 +98,14 @@ const Navbar = ({ toggleSubNav, isSubNavVisible }) => {
                         <li key={category.id}>
                           <Link to={`/courses?name=${encodeURIComponent(category.title)}&id=${category.id}&Maincategory=Industry Sector`}>
                             {category.title}
-                            <img src={ArrowDownIcon} alt="Arrow-down Icon" className='Arrow_Down_Icons' />
+                            {/* <img src={ArrowDownIcon} alt="Arrow-down Icon" className='Arrow_Down_Icons' />gi */}
                           </Link>
 
-                          <div className='Courses_DropDown'>
+                          {/* <div className='Courses_DropDown'>
                     <ul>
                     <li><a href="#">Click to open</a></li>
                     </ul>
-                  </div>
+                  </div> */}
                         </li>
                       ))}
 

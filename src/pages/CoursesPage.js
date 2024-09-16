@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy} from 'react';
 import { Helmet } from 'react-helmet';
-import { useParams, useLocation } from 'react-router-dom'; // Import useParams
+import {useNavigate, useParams, useLocation } from 'react-router-dom'; // Import useParams
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import AngleLeft from '../assets/Img/angle-right.svg';
 import FilterIcon from '../assets/Img/filter-icon.svg';
@@ -18,6 +18,9 @@ import CcIcon4 from '../assets/Img/Cc-icon4.svg';
 const NavbarWrapper = lazy(() => import('./NavbarWrapper'));
 
 const CoursesPage = () => {
+
+      
+  const navigate = useNavigate(); // Initialize useNavigate
     // Extract the category ID from the URL
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
@@ -40,6 +43,8 @@ const CoursesPage = () => {
     const [date, setDate] = useState('all-courses');
     const [expandedCards, setExpandedCards] = useState({});
     const [showPaymentDropdown, setShowPaymentDropdown] = useState(false);
+    const [price, setPrice] = useState(0);
+    const [course_id, setCourse_id] = useState(0);
     const [courses, setCourses] = useState([]);
     const [categoryImage, setCategoryImage] = useState([]);
 
@@ -73,9 +78,13 @@ const CoursesPage = () => {
         }
     }, [categoryId]);
 
-    const handleEnrollClick = () => {
+    const handleEnrollClick = (price, courseID) => {
+        // console.log(`Course Title: ${title}, Course Price: ${price}`);
         setShowPaymentDropdown(true);
+        setPrice(price);
+        setCourse_id(courseID);
     };
+    
     
     const handleCloseDropdown = () => {
         setShowPaymentDropdown(false);
@@ -88,8 +97,61 @@ const CoursesPage = () => {
         }));
     };
 
+    useEffect(() => {
+        if (showPaymentDropdown) {
+            // Load PayPal SDK script dynamically sb-0wsmz23447938@personal.example.com  #xX#@653
+            const script = document.createElement("script");
+            script.src = "https://www.paypal.com/sdk/js?client-id=AZ6ch7kDKITSE27sHoNVsSsXIOn2oE4Xsx41rloJwvSil1NRF9-fm0475cOLxXmXGchuEbJ4Hd5FxtOE"; // Add your PayPal client ID here
+            script.async = true;
+            script.onload = () => {
+                window.paypal.Buttons({
+                    createOrder: function (data, actions) {
+                        return actions.order.create({
+                            purchase_units: [{
+                                amount: {
+                                    value: price // Set the amount to be charged here
+                                }
+                            }]
+                        });
+                    },
+                    onApprove: function (data, actions) {
+                        return actions.order.capture().then(async function (details) {
+                            console.log('Transaction completed by ' + details.payer.name.given_name);
+                            
+                            // Define your userId and courseId variables
+                            const userId = localStorage.getItem("userId");
+                            const courseId = course_id; // Replace with actual courseId
+                            
+                            try {
+                                // Make GET request to the endpoint
+                                await fetch(`https://cmvp.net/api/v1/free/api/register/add_course/${userId}/${courseId}`, {
+                                    method: 'GET',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        // Add any required headers here
+                                    }
+                                });
+    
+                                // Redirect to the dashboard after the API call succeeds
+                                navigate('/dashboard'); // Redirect to the instructor page after adding
+                            } catch (error) {
+                                console.error('Error during API call', error);
+                            }
+                        });
+                    },
+                    onError: (err) => {
+                        console.error('Error during PayPal transaction', err);
+                    }
+                }).render('#paypal-button-container');
+            };
+            document.body.appendChild(script);
+        }
+    }, [showPaymentDropdown]);
+    
+
     // Conditionally add class to payment_DropDown section
-const dropdownClass = showPaymentDropdown ? "payment_DropDown show_payment_DropDown" : "payment_DropDown";
+    const dropdownClass = showPaymentDropdown ? "payment_DropDown show_payment_DropDown" : "payment_DropDown";
+
 
     return (
         <div className='courses-page'>
@@ -312,12 +374,16 @@ const dropdownClass = showPaymentDropdown ? "payment_DropDown show_payment_DropD
                                             <ul>
                                                 <li><img src={CcIcon1} alt="Icon" /><span>{course.lessons} HOURS LESSONS</span></li>
                                                 <li><img src={CcIcon2} alt="Icon" /><span>{course.duration}</span></li>
-                                                <li><h3>{course.price}</h3></li>
+                                                <li><h3>&euro;{course.amount}</h3></li>
                                                 <li><img src={CcIcon3} alt="Icon" /> <span>{course.methodOfLearning}</span></li>
                                                 <li>
-                                                <button className='enroll_btn' onClick={handleEnrollClick}>
+                                                <button 
+                                                    className='enroll_btn' 
+                                                    onClick={() => handleEnrollClick(course.amount, course.id)}
+                                                >
                                                     <img src={CcIcon4} alt="Icon" /> Enroll Now
                                                 </button>
+
                                                 </li>
                                             </ul>
                                         </div>
@@ -361,13 +427,13 @@ const dropdownClass = showPaymentDropdown ? "payment_DropDown show_payment_DropD
 
 
 
-<section className={dropdownClass}>
-    <div className="payment_Box">
-        <h3 className="semi-mid-text">Paypal Dropdown</h3>
-    </div>
-    <button className="close_payment_DropDown" onClick={handleCloseDropdown}></button>
-</section>
-
+            <section className={dropdownClass}>
+                <div className="payment_Box">
+                    <h3 className="semi-mid-text">Paypal Dropdown</h3>
+                    <div id="paypal-button-container"></div>
+                </div>
+                <button className="close_payment_DropDown" onClick={handleCloseDropdown}>Close</button>
+            </section>
            
     
      <section className='Maihs_sec Glans_Bg'>

@@ -224,7 +224,7 @@ const Home = () => {
     <div>
       <Helmet>
         <title>Accredited Recognized Training Solutions | A.R.T.S Training Services</title>
-        <meta name="description" content="Accredited Recognized Training Solutions" />
+        <meta name="description" content="We provide an extensive variety of training courses, carefully tailored to meet your individual needs, ensuring you receive the best possible learning experience. Sign up now."/>
         <meta name="keywords" content="A.R.T.S, training services, accredited health courses, Your number one accredited healthcare training provider in Chester, Childcare training partner you can trust, NCFE recognised and approved healthcare training programmes, Fully funded qualifications for your adult care workforce" />
       </Helmet>
 

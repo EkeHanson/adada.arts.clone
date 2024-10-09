@@ -106,7 +106,7 @@ const Contact = () => {
             <li>
               <img src={CallIcon} alt="Phone" />
               <p>Phone number</p>
-              <span className='p'>03300582045</span>
+              <span className='p'>03300582044</span>
             </li>
             <li>
               <img src={EmailIcon} alt="Email" />

@@ -35,6 +35,10 @@ import CllaImg1 from '../assets/Img/CllaImg/1.png';
 import CllaImg2 from '../assets/Img/CllaImg/2.png';
 import CllaImg3 from '../assets/Img/CllaImg/3.png';
 
+
+
+import TrustPilotWidget from './TrustPilotWidget';
+
 const Home = () => {
   const [slideCount, setSlideCount] = useState(0);
   const [isPrevVisible, setIsPrevVisible] = useState(false);
@@ -223,9 +227,10 @@ const Home = () => {
   return (
     <div>
       <Helmet>
-        <title>Accredited Recognized Training Solutions | A.R.T.S Training Services</title>
-        <meta name="description" content="We provide an extensive variety of training courses, carefully tailored to meet your individual needs, ensuring you receive the best possible learning experience. Sign up now."/>
+        <title>Accredited Recognized Training Solutions - Bespoke mandatory, induction & accredited training courses for all care providers & professionals</title>
+        <meta name="description" content="Accredited Recognized Training Solutions - Bespoke mandatory, induction & accredited training courses for all care providers & professionals"/>
         <meta name="keywords" content="A.R.T.S, training services, accredited health courses, Your number one accredited healthcare training provider in Chester, Childcare training partner you can trust, NCFE recognised and approved healthcare training programmes, Fully funded qualifications for your adult care workforce" />
+        <meta name="google-site-verification" content="LnU-sTp--TPR7zmws71poJbRlLu-AHHUkC39el2Bkbc" />
       </Helmet>
 
       <header className='header-sec'>
@@ -493,6 +498,12 @@ const Home = () => {
 
           </div>
       </section>
+
+      <div className='site-container'>
+      <div className="trustpilot-widget" data-locale="en-GB" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6704fa94508a2a56ff7d004e" data-style-height="52px" data-style-width="100%">
+<a href="https://uk.trustpilot.com/review/artstraining.co.uk" target="_blank" rel="noopener">Trustpilot</a>
+</div>
+      </div>
 
 
    

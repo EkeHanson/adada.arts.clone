@@ -374,7 +374,7 @@ const CoursesPage = () => {
                                             <ul>
                                                 <li><img src={CcIcon1} alt="Icon" /><span>{course.lessons} HOURS LESSONS</span></li>
                                                 <li><img src={CcIcon2} alt="Icon" /><span>{course.duration}</span></li>
-                                                <li><h3>&euro;{course.amount}</h3></li>
+                                                <li><h3>&pound;{course.amount}</h3></li>
                                                 <li><img src={CcIcon3} alt="Icon" /> <span>{course.methodOfLearning}</span></li>
                                                 <li>
                                                 <button 

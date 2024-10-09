@@ -125,7 +125,7 @@ const Navbar = ({ toggleSubNav, isSubNavVisible }) => {
                 </li>
                 <li>
                   <Link to='/help' onClick={handleNavClick}>
-                    Help <img src={HelpIcon} alt="Help Icon" />
+                  Contact us <img src={HelpIcon} alt="Help Icon" />
                   </Link>
                 </li>
                 {user ? (

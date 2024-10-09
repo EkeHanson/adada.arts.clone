@@ -93,10 +93,10 @@ const Login = () => {
           <div className='login-container Reg_Form_Box'>
             <div className='Reg_Header'>
               <h3>Login to continue</h3>
-              <button onClick={handleGoogleLogin} className='google-login-btn'>
+              {/* <button onClick={handleGoogleLogin} className='google-login-btn'>
                 <img src={GoogleIcon} alt='Google icon' />
                 Continue with Google
-              </button>
+              </button> */}
               <p><span>Or</span></p>
             </div>
             <form className='Reg_Form login-form' onSubmit={handleSubmit}>

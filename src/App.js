@@ -27,6 +27,7 @@ const Login = lazy(() => import('./pages/Login'));
 const Signup = lazy(() => import('./pages/Signup'));
 const SetPassword = lazy(() => import('./pages/SetPassword'));
 const ForgotPass = lazy(() => import('./pages/ForgotPass'));
+const ForgotPassReset = lazy(() => import('./pages/ForgotPassReset'));
 const SearchResult = lazy(() => import('./pages/SearchResult')); // Import the SearchResult component
 const Dashboard = lazy(() => import('./Userdashboard/Dashboard'));
 const OngoingCourses = lazy(() => import('./Userdashboard/OngoingCourses'));
@@ -97,6 +98,8 @@ const MainContent = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/set-password" element={<SetPassword />} />
         <Route path="/forgot-password" element={<ForgotPass />} />
+        <Route path="/reset-password/:uid/:token" element={<ForgotPassReset />} />
+
 
         {/* Admin routes */}
         <Route path="/admin/*" element={

@@ -1,0 +1,490 @@
+/* User_Dashboard */
+.User_Dashboard{
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 50vh;
+    border-bottom: 1px solid #DADDDE;
+    padding-bottom: 30px;
+}
+
+.User_Dashboard_main{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+@media screen and (max-width:1100px){
+    .User_Dashboard_main{
+        display: block !important;
+    }
+    .UuD_Dash_Left{
+        display: none !important;
+    }
+    .Pc_Hiden{
+        display: inline-flex !important;
+    }
+}
+
+.Pc_Hiden{
+    display: none;
+}
+.Nnav ul li a{
+    white-space: nowrap !important;
+}
+.UuD_Dash_Left{
+    position: sticky;
+    top: 150px;
+    left: 0;
+    z-index: 200;
+    width: 270px;
+    height: auto;
+    min-height: 300px;
+}
+
+.UuD_Dash_NAV{
+    position: inherit;
+    width: inherit;
+    height: inherit;
+    min-height: inherit;
+    z-index: inherit;
+    top: inherit;
+    background-color: #F3F6F7;
+    border:1px solid #DADDDE;
+    border-radius: 10px;
+}
+
+.Dashboard_Content{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.Tt_Ddda_1{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding:10px 20px;
+    padding-bottom: 10px;
+}
+
+.Tt_Ddda_1 h3{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.Tt_Ddda_1 h3 span{
+    font-size: 11px;
+    font-weight: 400;
+    color: #5f6368;
+}
+
+.Tt_Ddda_2{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 10px;
+    padding:7px 20px;
+    border-top: 1px solid #DADDDE;
+    border-bottom: 1px solid #DADDDE;
+}
+
+.Tt_Ddda_20{
+    position: relative;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    user-select: none;
+}
+.Tt_Ddda_20 img.profil_Img{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-fit: cover;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0  10px rgb(0 0 0 / 10%);
+    -moz-box-shadow: 0 0  10px rgb(0 0 0 / 10%);
+    box-shadow: 0 0  10px rgb(0 0 0 / 10%);
+    border:2px solid #fff;
+}
+.Tt_Ddda_20 span{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 20;
+}
+.Tt_Ddda_20 span img{
+    max-width: 70%;
+}
+
+.Tt_Ddda_21{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.Tt_Ddda_21 div{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.Tt_Ddda_21 h4{
+    position: relative;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: 500;
+}
+.Tt_Ddda_21 p{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-top: 3px;
+    text-transform: uppercase;
+}
+.Tt_Ddda_21 p span{
+    font-size: 12px;
+    color: #5f6368;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    grid-gap: 5px;
+}
+.Tt_Ddda_21 p span img{
+    max-width: 12px;
+}
+
+.Tt_Ddda_3{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-bottom: 10px;
+}
+
+.Tt_Ddda_3 h3{
+    position: relative;
+    width: 100%;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding:10px 35px;
+}
+
+.Tt_Ddda_3{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.Tt_Ddda_3 ul{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.Tt_Ddda_3 ul li{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+.Tt_Ddda_3 ul li a{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding:10px 20px;
+    background-color: #fff;
+    width: 100%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    transition: all 0.3s ease-in-out;
+    font-size: 14px;
+}
+.Tt_Ddda_3 ul li a span{
+    position: relative;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    grid-gap: 8px;
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+}
+.Tt_Ddda_3 ul li a img{
+    width: 18px;
+}
+
+.Tt_Ddda_3 ul li a.Active_UuD_Nav_Icon,
+.Tt_Ddda_3 ul li a:hover{
+    background-color: #18BFFF;
+}
+.Tt_Ddda_3 ul li a.Active_UuD_Nav_Icon span,
+.Tt_Ddda_3 ul li a:hover span{
+    opacity: 1;
+}
+
+
+
+/* UuD_Dash_Right */
+
+.UuD_Dash_Right{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.Main_Dash_Content{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.Top_TD_Dash{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.TD_Dash_Intro{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.TD_Dash_Intro h3{
+    font-size: 18px;
+    font-weight: 500;
+}
+.TD_Dash_Intro span{
+    font-size: 11px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #5f6368;
+}
+.TD_Dash_Card_Sec{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+    grid-template-rows:auto;
+}
+@media screen and (max-width:1000px){
+    .TD_Dash_Card_Sec{
+        grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)) !important; 
+    }
+}
+@media screen and (max-width:450px){
+    .TD_Dash_Card_Sec{
+        display: flex !important;
+        flex-direction: column !important;
+        gap:15px !important;
+        grid-gap:15px !important;
+    }
+}
+
+.TD_Dash_Card_1{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    min-height: 50px;
+    border-radius: 10px;
+}
+
+.TD_Dash_Card_1:nth-child(1){
+    background-color: #E9E6F9;
+}
+.TD_Dash_Card_1:nth-child(2){
+    background-color: #E2F0FE;
+}
+.TD_Dash_Card_1:nth-child(3){
+    background-color: #FFE0E6;
+}
+.TD_Dash_Card_1:nth-child(4){
+    background-color: #ECFAE5;
+}
+
+
+.GGha_Grid{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 10px;
+}
+
+.GG_Bans{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-color: #0055FF;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+@media screen and (max-width:450px){
+    .GG_Bans{
+        width: 50px !important;
+        height: 50px !important;
+    }
+}
+.GG_Bans img{
+    max-width: 55%;
+}
+.TD_Dash_Card_1:nth-child(1) .GG_Bans{
+    background-color: #624BD8;
+}
+
+.TD_Dash_Card_1:nth-child(2) .GG_Bans{
+    background-color: #10D0D5;
+}
+
+.TD_Dash_Card_1:nth-child(3) .GG_Bans{
+    background-color: #FF5975;
+}
+
+.TD_Dash_Card_1:nth-child(4) .GG_Bans{
+    background-color: #79DC47;
+}
+
+
+
+.GG_TxtX{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+.GG_TxtX h4{
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.GG_TxtX h4 img{
+    width: 15px;
+}
+.GG_TxtX p{
+    font-size: 14px;
+}
+
+
+.GG_Foot{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+.GG_Foot p{
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    grid-gap: 10px;
+}
+.GG_Foot p img{
+    width: 14px;
+    opacity: 0.5;
+}
+
+
+.Abba_BbatS{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+}
+
+
+/* HHag_Sec */
+
+
+.HHag_Sec{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.User_Dashboard .Page_Top{
+    z-index: 100 !important;
+    position: relative !important;
+    top: 0px !important;
+}
+
+
+
+
+
+.CCc_Card_1_Top p{
+    margin-bottom: 20px !important;
+    font-size: 15px;
+}
+.CCc_Card_1_Top p span{
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #0055FF;
+}
+
+.CCc_Card_2 ul li span span{
+    color: #ED55B9 !important;
+    font-size: 12px !important;
+    padding: 5px 10px;
+    background-color: #FFE6F4 !important;
+    border-radius: 40px;
+}
+
+.complete_btn{
+    background-color: #FABC00 !important;
+    color: #000 !important;
+    font-size: 13px !important;
+}
+.complete_btn:hover{
+    background-color: #D59F00 !important;
+}
+
+
+.Yh_Reg_Header{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.Yh_Reg_Header .Tt_Ddda_21 p{
+    display: block !important;
+}
+
+.Profile_Pppa .Reg_Form_Sec{
+    margin-top: 20px !important;
+}

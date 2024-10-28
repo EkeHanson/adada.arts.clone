@@ -96,7 +96,7 @@ const Navbar = ({ toggleSubNav, isSubNavVisible }) => {
 
                   {industryCategories.map(category => (
                         <li key={category.id}>
-                          <Link to={`/courses?name=${encodeURIComponent(category.title)}&id=${category.id}&Maincategory=Industry Sector`}>
+                          <Link to={`/courses?name=${encodeURIComponent(category.title)}&id=${category.id}&Maincategory=Industry Sector`} onClick={handleNavClick}>
                             {category.title}
                             {/* <img src={ArrowDownIcon} alt="Arrow-down Icon" className='Arrow_Down_Icons' />gi */}
                           </Link>

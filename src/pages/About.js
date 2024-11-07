@@ -97,7 +97,7 @@ const About = () => {
               <li><img src={PartImg2}></img><p>XCTP</p></li>
               <li><img src={PartImg3}></img><p>Proliance LTD</p></li>
               {/* <li><img src={PartImg4}></img><p></p></li> */}
-              <li><img src={PartImg5}></img><p>Lacklearn</p></li>
+              {/* <li><img src={PartImg5}></img><p>Lacklearn</p></li> */}
             </ul>
           </div>
 

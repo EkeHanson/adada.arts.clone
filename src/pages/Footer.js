@@ -85,6 +85,9 @@ const Footer = () => {
                             </a>
                         </div>
                         <h6>© {new Date().getFullYear()} A.R.T.S</h6>
+                        <p style={{ fontSize: '12px' }}>
+                            Developed by <a href='https://prolianceltd.com/' style={{ textDecoration: 'underline', fontWeight: 'bold' }}>Proliance LTD</a>
+                            </p>
                     </div>
                     </div>
                 </div>

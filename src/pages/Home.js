@@ -251,13 +251,13 @@ const Home = () => {
                   </div>
 
                   <div className='hero-foot mobile-hero-foot'>
-              <div className='hero_Selt_Btns'>
+              {/* <div className='hero_Selt_Btns'>
                 <a href='#'>Online courses</a>
                 <a href='#'>On Demand courses</a>
                 <a href='#' className='free-icon'>
                   <img src={EuroIcon} alt="Euro Icon" />Free courses
                 </a>
-              </div>
+              </div> */}
 
               <div className='rec-Sec'>
                 <span>Recognized by:</span>
@@ -273,13 +273,13 @@ const Home = () => {
             </div>
 
             <div className='hero-foot'>
-              <div className='hero_Selt_Btns'>
+              {/* <div className='hero_Selt_Btns'>
                 <a href='#'>Online courses</a>
                 <a href='#'>On Demand courses</a>
                 <a href='#' className='free-icon'>
                   <img src={EuroIcon} alt="Euro Icon" />Free courses
                 </a>
-              </div>
+              </div> */}
 
               <div className='rec-Sec'>
                 <span>Recognized by:</span>

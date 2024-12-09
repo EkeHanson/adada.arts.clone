@@ -57,15 +57,13 @@ const Footer = () => {
                             )}
                         </ul>
                     <ul>
-                        {/* <li><Link to='/health-category'>Healthcare courses</Link></li>
-                        <li><Link to='/leadership-category'>Leadership courses</Link></li> */}
-                        {/* <li><Link to='/others'>Other courses</Link></li> */}
-                        {/* <li><Link to='/arts-training'>A.R.T.S Training</Link></li> */}
+                      
                         <li><Link to='/about'>About</Link></li>
                         <li><Link to='/help'>Help and support</Link></li>
                         <li><Link to='/terms'>Terms and conditions</Link></li>
                         <li><Link to='/privacy'>Privacy Policy</Link></li>
-
+                        <li><Link to='/arts-consent-information'>ARTS Consent Information</Link></li>
+                        <li><Link to='/arts-modern-slavery-statement'>ARTS Modern Slavery Statement</Link></li>
                     </ul>
                     </div>
                 </div>

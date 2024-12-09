@@ -23,6 +23,8 @@ const TrainingPage = lazy(() => import('./pages/Training'));
 const Contact = lazy(() => import('./pages/Contact'));
 const TermsPage = lazy(() => import('./pages/TermsPage'));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
+const ConsentPage = lazy(() => import('./pages/ConsentPage'));
+const MSlaveryPage = lazy(() => import('./pages/MSlaveryPage'));
 const Login = lazy(() => import('./pages/Login'));
 const Signup = lazy(() => import('./pages/Signup'));
 const SetPassword = lazy(() => import('./pages/SetPassword'));
@@ -89,6 +91,8 @@ const MainContent = () => {
         <Route path="/help" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
         <Route path="/terms" element={<ProtectedRoute><TermsPage /></ProtectedRoute>} />
         <Route path="/privacy" element={<ProtectedRoute><PrivacyPage /></ProtectedRoute>} />
+        <Route path="/arts-consent-information" element={<ProtectedRoute><ConsentPage /></ProtectedRoute>} />
+        <Route path="/arts-modern-slavery-statement" element={<ProtectedRoute><MSlaveryPage /></ProtectedRoute>} />
         <Route path="/search" element={<ProtectedRoute><SearchResult /></ProtectedRoute>} /> {/* Add SearchResult route */}
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="/dashboard/ongoing-courses" element={<ProtectedRoute><OngoingCourses /></ProtectedRoute>} /> 

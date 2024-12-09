@@ -36,6 +36,13 @@ import CllaImg2 from '../assets/Img/CllaImg/2.png';
 import CllaImg3 from '../assets/Img/CllaImg/3.png';
 
 
+import Test1 from '../assets/Img/TestImg/1.jpg';
+import Test2 from '../assets/Img/TestImg/2.jpg';
+import Test3 from '../assets/Img/TestImg/3.jpg';
+
+import AngleSlt from '../assets/Img/angle-arrow.svg';
+
+
 
 import TrustPilotWidget from './TrustPilotWidget';
 
@@ -249,6 +256,26 @@ const Home = () => {
                 onKeyDown={handleKeyDown}/>
                     <button onClick={handleSearch}>Search courses</button>
                   </div>
+
+                  <div className="hero-testimonial">
+                <div class="her-text-l">
+                    <span>
+                        <img src={Test1} />
+                    </span>
+                    <span>
+                        <img src={Test2} />
+                    </span>
+                    <span>
+                        <img src={Test3} />
+                    </span>
+                </div>
+                 <div className="her-text-r">
+                     <h4>We have over 100+ Students</h4>
+                 </div>
+                 <button class="icon-btn">
+                     <img src={AngleSlt} />
+                 </button>
+            </div>
 
                   <div className='hero-foot mobile-hero-foot'>
               {/* <div className='hero_Selt_Btns'>
@@ -483,8 +510,8 @@ const Home = () => {
                 <h2 className='Semi-mid-text'>Learn. Innovate. Improve</h2>
                <p className='p'>Virtual, classroom and e-learning skills development courses designed to help your people and businesses.</p>
 
-            <div className='Abt_Btns'>
-             <a href='#'>Get started</a>
+               <div className='Abt_Btns'>
+             <Link to="/login">Get started</Link>
             </div>
               
               </div>
@@ -500,9 +527,7 @@ const Home = () => {
       </section>
 
       <div className='site-container'>
-      <div className="trustpilot-widget" data-locale="en-GB" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6704fa94508a2a56ff7d004e" data-style-height="52px" data-style-width="100%">
-<a href="https://uk.trustpilot.com/review/artstraining.co.uk" target="_blank" rel="noopener">Trustpilot</a>
-</div>
+            <TrustPilotWidget />
       </div>
 
 

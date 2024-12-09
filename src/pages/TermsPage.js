@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 
+import { Link } from 'react-router-dom';
+
 import AbtImg3 from '../assets/Img/AbtImg3.png';
 
 const TermsPage = () => {
@@ -49,8 +51,8 @@ const TermsPage = () => {
                 <h2 className='Semi-mid-text'>Learn. Innovate. Improve</h2>
                <p className='p'>Virtual, classroom and e-learning skills development courses designed to help your people and businesses achieve.</p>
 
-            <div className='Abt_Btns'>
-             <a href='#'>Get started</a>
+               <div className='Abt_Btns'>
+             <Link to="/login">Get started</Link>
             </div>
               
               </div>
